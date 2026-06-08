@@ -402,7 +402,7 @@
                                 <input type="text" id="heroChurch" placeholder="Heartfelt Ashdown Park Assembly" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fire-500 focus:bg-white transition-all text-slate-800 focus:shadow-lg focus:shadow-fire-500/20">
                             </div>
                             <div class="space-y-1.5">
-                                <label class="block text-[10px] uppercase tracking-widest text-slate-600 font-bold">Title / Designation</label>
+                                <label class="block text-[10px] uppercase tracking-widest text-slate-600 font-bold">Title</label>
                                 <select id="heroTier" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fire-500 focus:bg-white transition-all text-slate-800 focus:shadow-lg focus:shadow-fire-500/20">
                                     <option value="Pastor">Pastor</option>
                                     <option value="Apostle">Apostle</option>
@@ -425,6 +425,7 @@
                         <!-- STEP 3 -->
                         <div id="heroStep3" class="hero-step hidden space-y-5">
                             <div class="text-center space-y-2 animate-scale-in">
+                                <img src="images/logo.png" alt="Women on Fire Logo" class="w-16 h-16 object-contain mx-auto mb-2">
                                 <div class="w-14 h-14 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-600 flex items-center justify-center text-2xl mx-auto animate-bounce">
                                     <i class="fa-solid fa-check"></i>
                                 </div>
@@ -596,7 +597,7 @@
                             <input type="text" id="regChurch" placeholder="e.g., Heartfelt Ashdown Park Assembly" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fire-500 focus:bg-white transition-all text-slate-800 focus:shadow-lg focus:shadow-fire-500/20">
                         </div>
                         <div class="space-y-2 stagger-item">
-                            <label class="block text-xs uppercase tracking-widest text-slate-600 font-bold">Title / Designation</label>
+                            <label class="block text-xs uppercase tracking-widest text-slate-600 font-bold">Title</label>
                             <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
                                 <label class="border border-slate-200 rounded-xl p-3 flex flex-col items-center text-center cursor-pointer bg-white/60 hover:bg-white hover:border-fire-500/40 transition-all relative hover-lift card-enter">
                                     <input type="radio" name="regTier" value="Pastor" checked class="absolute top-2 right-2 accent-fire-500">
@@ -634,6 +635,7 @@
                     <!-- STEP 3: Confirm Details and Complete Badge Generation -->
                     <div id="stepPanel3" class="step-panel hidden space-y-6 animate-fade-in">
                         <div class="space-y-2 text-center animate-scale-in">
+                            <img src="images/logo.png" alt="Women on Fire Logo" class="w-16 h-16 object-contain mx-auto mb-2">
                             <div class="w-16 h-16 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-4 animate-bounce">
                                 <i class="fa-solid fa-check"></i>
                             </div>
@@ -1658,16 +1660,6 @@
                 // Header background bar
                 doc.setFillColor(220, 38, 38);
                 doc.rect(0, 0, 210, 35, 'F');
-                
-                // Logo placeholder box (since we can't load external images from file://)
-                doc.setFillColor(255, 255, 255);
-                doc.roundedRect(15, 8, 20, 20, 3, 3, 'F');
-                doc.setTextColor(220, 38, 38);
-                doc.setFont('helvetica', 'bold');
-                doc.setFontSize(10);
-                doc.text('WOF', 25, 18, { align: 'center' });
-                doc.setFontSize(7);
-                doc.text('LOGO', 25, 23, { align: 'center' });
                 
                 // Conference title on header
                 doc.setTextColor(255, 255, 255);
