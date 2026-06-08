@@ -1273,7 +1273,7 @@
                 document.getElementById('heroSumEmail').innerText = document.getElementById('heroEmail').value;
                 document.getElementById('heroSumPhone').innerText = document.getElementById('heroPhone').value;
                 document.getElementById('heroSumCity').innerText = city;
-                document.getElementById('heroSumChurch').innerText = document.getElementById('heroChurch').value || 'Heartfelt Ministries Assembly';
+                document.getElementById('heroSumChurch').innerText = document.getElementById('heroChurch').value || 'Not specified';
                 document.getElementById('heroSumTier').innerText = document.getElementById('heroTier').value;
                 heroCurrentStep = 3;
                 updateHeroSteps();
@@ -1403,6 +1403,7 @@
             const email = document.getElementById('heroEmail').value.trim();
             const phone = document.getElementById('heroPhone').value.trim();
             const city = document.getElementById('heroCity').value.trim();
+            const church = document.getElementById('heroChurch').value.trim() || 'Not specified';
             const tier = document.getElementById('heroTier').value;
 
             if (!firstName || !lastName || !email || !phone || !city) {
@@ -1410,7 +1411,7 @@
                 return;
             }
 
-            finalizeRegistration(firstName, lastName, email, phone, city, 'Heartfelt Ministries Assembly', tier);
+            finalizeRegistration(firstName, lastName, email, phone, city, church, tier);
             document.getElementById('heroConfirmMsg').classList.remove('hidden');
         }
 
