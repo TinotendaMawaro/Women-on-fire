@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women on Fire 2026 - Oh God of Vengeance Show Yourself</title>
+    <!-- Tailwind CSS for high-fidelity interactive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        fire: {
+                            50: '#fff1f0',
+                            100: '#ffe1df',
+                            500: '#ff4500', // Fiery Red-Orange
+                            600: '#e03200',
+                            700: '#b82000',
+                            900: '#4a0800',
+                        },
+                        mystic: {
+                            900: '#f8fafc', // Modern bright slate/white background
+                            950: '#f1f5f9'
+                        }
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 2.5s infinite alternate',
+                        'fire-flicker': 'fireFlicker 3s infinite alternate',
+                        'float-particle': 'floatParticle 12s infinite linear',
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'slide-in-up': 'slideInUp 0.6s ease-out forwards',
+                        'slide-in-down': 'slideInDown 0.6s ease-out forwards',
+                        'slide-in-left': 'slideInLeft 0.6s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.6s ease-out forwards',
+                        'scale-in': 'scaleIn 0.5s ease-out forwards',
+                        'shimmer': 'shimmer 2s infinite',
+                        'gradient-shift': 'gradientShift 4s ease infinite',
+                        'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite',
+                        'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+                        'rotate-smooth': 'rotate-smooth 10s linear infinite',
+                        'wiggle': 'wiggle 0.3s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome icons for badges, buttons and lists -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts for typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- jsPDF for PDF ticket generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f1f5f9;
+        }
+        .title-font {
+            font-family: 'Cinzel', serif;
+        }
+        /* Custom Glowing & Glassmorphism effects with light frost styling */
+        .glass {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 8px 32px 0 rgba(148, 163, 184, 0.12);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-active {
+            border-color: rgba(255, 69, 0, 0.5);
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.15);
+        }
+        .glass:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px 0 rgba(148, 163, 184, 0.18);
+        }
+        /* Custom Keyframe Animations */
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); }
+            100% { box-shadow: 0 0 25px rgba(255, 255, 255, 0.8); }
+        }
+        @keyframes fireFlicker {
+            0%, 100% { filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.2)); }
+            50% { filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.4)); }
+        }
+        @keyframes floatParticle {
+            0% { transform: translateY(100vh) translateX(0) scale(0.8); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) translateX(60px) scale(1.4); opacity: 0; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        @keyframes bounce-subtle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes glow-pulse {
+            0%, 100% { filter: drop-shadow(0 0 4px rgba(255, 69, 0, 0.2)); }
+            50% { filter: drop-shadow(0 0 12px rgba(255, 69, 0, 0.6)); }
+        }
+        @keyframes rotate-smooth {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes wiggle {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-2px); }
+            75% { transform: translateX(2px); }
+        }
+        .fire-glow-text {
+            text-shadow: 0 0 12px rgba(255, 69, 0, 0.4);
+            animation: glow-pulse 2.5s ease-in-out infinite;
+        }
+        /* Hide scrollbar but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Smooth transitions for interactive elements */
+        input, select, textarea {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        input:focus, select:focus, textarea:focus {
+            transform: scale(1.01);
+        }
+        button {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        button:active::before {
+            animation: ripple 0.6s ease-out;
+        }
+        @keyframes ripple {
+            to {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+        }
+        .view-panel {
+            animation: fadeIn 0.6s ease-out;
+        }
+        /* Staggered animations for lists */
+        .stagger-item {
+            opacity: 0;
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+        .stagger-item:nth-child(1) { animation-delay: 0.1s; }
+        .stagger-item:nth-child(2) { animation-delay: 0.2s; }
+        .stagger-item:nth-child(3) { animation-delay: 0.3s; }
+        .stagger-item:nth-child(4) { animation-delay: 0.4s; }
+        .stagger-item:nth-child(5) { animation-delay: 0.5s; }
+        .stagger-item:nth-child(6) { animation-delay: 0.6s; }
+        .stagger-item:nth-child(7) { animation-delay: 0.7s; }
+        .stagger-item:nth-child(8) { animation-delay: 0.8s; }
+        /* Card entrance animations */
+        .card-enter {
+            animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        /* Smooth state transitions */
+        .transition-smooth {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .transition-fast {
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .transition-slow {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        /* Hover lift effect */
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        /* Badge pulse animations */
+        .badge-pulse {
+            animation: glow-pulse 2s ease-in-out infinite;
+        }
+        /* Loading spinner */
+        .spinner {
+            animation: rotate-smooth 1s linear infinite;
+        }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col selection:bg-fire-500 selection:text-white relative">
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- Abstract premium white & light silver glow backdrops -->
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-white/60 blur-[140px] animate-pulse" style="animation-duration: 6s;"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-slate-300/30 blur-[180px] animate-pulse" style="animation-duration: 8s; animation-delay: 1s;"></div>
+        <div class="absolute top-[40%] right-[10%] w-[30%] h-[40%] rounded-full bg-fire-500/5 blur-[150px] animate-pulse" style="animation-duration: 7s; animation-delay: 2s;"></div>
+        
+        <!-- Interactive floating shimmering white glass particles -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute w-3 h-3 bg-white/90 border border-white rounded-full shadow-[0_0_12px_rgba(255,255,255,0.9)] animate-float-particle bottom-0 left-[15%]" style="animation-duration: 14s;"></div>
+            <div class="absolute w-4 h-4 bg-white/60 border border-white/50 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.6)] animate-float-particle bottom-0 left-[45%]" style="animation-duration: 9s; animation-delay: 2s;"></div>
+            <div class="absolute w-2.5 h-2.5 bg-white border border-white/80 rounded-full shadow-[0_0_15px_rgba(255,255,255,1)] animate-float-particle bottom-0 left-[75%]" style="animation-duration: 16s; animation-delay: 4s;"></div>
+            <div class="absolute w-5 h-5 bg-white/40 border border-white/30 rounded-full shadow-[0_0_10px_rgba(255,255,255,0.4)] animate-float-particle bottom-0 left-[30%]" style="animation-duration: 18s; animation-delay: 1s;"></div>
+            <div class="absolute w-3 h-3 bg-white/80 border border-white/60 rounded-full shadow-[0_0_12px_rgba(255,255,255,0.8)] animate-float-particle bottom-0 left-[85%]" style="animation-duration: 12s; animation-delay: 5s;"></div>
+        </div>
+    </div>
+
+    <!-- Live Toast Notification Center -->
+    <div id="toast" class="fixed top-24 right-4 md:right-8 z-50 transform translate-y-[-100px] opacity-0 transition-all duration-300 ease-out max-w-sm w-full">
+        <div class="glass border-l-4 border-fire-500 p-4 rounded-xl flex items-start gap-3 shadow-xl text-slate-800 animate-slide-down">
+            <div class="text-fire-500 mt-0.5" id="toastIcon">
+                <i class="fa-solid fa-circle-check text-xl"></i>
+            </div>
+            <div class="flex-1">
+                <p class="font-bold text-sm" id="toastTitle">System Alert</p>
+                <p class="text-xs text-slate-600 mt-1" id="toastMessage">Successfully processed.</p>
+            </div>
+            <button onclick="dismissToast()" class="text-slate-400 hover:text-slate-800 transition-colors hover:rotate-90 duration-300">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Custom Animated Dialog Modal (Modern replacement for browser confirm window) -->
+    <div id="customModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm hidden transition-all duration-300" style="opacity: 0;">
+        <div class="glass max-w-md w-full rounded-2xl p-6 border border-white/60 shadow-2xl transform scale-95 transition-all duration-300 text-slate-800" id="customModalContent">
+            <div class="text-center space-y-4 animate-scale-in">
+                <div class="w-12 h-12 rounded-full bg-fire-100 text-fire-600 flex items-center justify-center text-xl mx-auto border border-fire-200 animate-bounce">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900" id="modalTitle">System Confirmation</h3>
+                <p class="text-xs text-slate-600 leading-relaxed" id="modalMessage">Are you sure you want to proceed with this system command?</p>
+                <div class="grid grid-cols-2 gap-3 pt-2">
+                    <button id="modalCancelBtn" onclick="closeCustomModal()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl py-2.5 text-xs font-bold transition-all border border-slate-200 hover-lift">
+                        Cancel
+                    </button>
+                    <button id="modalConfirmBtn" class="w-full bg-fire-600 hover:bg-fire-500 text-white rounded-xl py-2.5 text-xs font-bold transition-all shadow-lg shadow-fire-600/20 hover-lift">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Navbar -->
+    <header class="sticky top-0 z-40 glass border-b border-white/65 shadow-md animate-slide-down">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3 animate-slide-in-left">
+                <img src="images/logo.png" alt="Women on Fire Logo" class="w-14 h-14 object-contain" onerror="this.style.display='none';">
+            </div>
+        </div>
+    </header>
+
+    <!-- Content Wrapper -->
+    <main class="flex-grow z-10">
+
+        <!-- LANDING SCREEN VIEW -->
+        <section id="viewLanding" class="view-panel max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 space-y-12 animate-fade-in">
+            
+            <!-- PRIMARY SPLIT-SCREEN: Registration Form + Promo Image -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden border-2 border-white/80 shadow-2xl card-enter animate-fade-in min-h-[600px]">
+                
+                <!-- Left: Registration Form (Primary Focus) -->
+                <div class="bg-white/90 backdrop-blur-sm p-6 sm:p-8 md:p-12 flex flex-col justify-center order-1 animate-slide-in-left">
+                    <div class="mb-8">
+                        <h2 class="text-3xl md:text-4xl font-black title-font uppercase tracking-tight text-slate-900 leading-tight">
+                            Oh God of <br>
+                            <span class="bg-gradient-to-r from-fire-600 via-orange-600 to-amber-500 bg-clip-text text-transparent">Vengeance</span> <br>
+                            Show Yourself!
+                        </h2>
+                        <p class="text-sm text-slate-500 mt-4 max-w-md">Register now for the Women on Fire Conference 2026.</p>
+                    </div>
+
+                    <!-- Step Progress Bar -->
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-2">
+                            <span id="heroStepLabel" class="text-[10px] font-extrabold uppercase tracking-widest text-fire-600">Step 1 of 3</span>
+                            <span id="heroStepTitle" class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Personal Details</span>
+                        </div>
+                        <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                            <div id="heroProgress" class="h-full bg-gradient-to-r from-fire-600 via-orange-500 to-amber-400 rounded-full transition-all duration-500 ease-out shadow-lg shadow-fire-600/20" style="width: 33.3%;"></div>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center gap-1.5">
+                                <span id="heroDot1" class="w-2 h-2 rounded-full bg-fire-600"></span>
+                                <span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Details</span>
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                <span id="heroDot2" class="w-2 h-2 rounded-full bg-slate-300"></span>
+                                <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Location</span>
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                <span id="heroDot3" class="w-2 h-2 rounded-full bg-slate-300"></span>
+                                <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Confirm</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mini Step Form -->
+                    <form id="heroRegForm" onsubmit="handleHeroRegistration(event)" class="space-y-4">
+                        
+                        <!-- STEP 1 -->
+                        <div id="heroStep1" class="hero-step space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="space-y-1.5">
+                                    <label class="block text-[10px] uppercase tracking-widest text-slate-600 font-bold">First Name</label>
+                                    <input type="text" id="heroFirstName" required placeholder="First name" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fire-500 focus:bg-white transition-all text-slate-800 focus:shadow-lg focus:shadow-fire-500/20">
+                                </div>
+                                <div class="space-y-1.5">
+                                    <label class="block text-[10px] uppercase tracking-widest text-slate-600 font-bold">Last Name</label>
+                                    <input type="text" id="heroLastName" required placeholder="Last name" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fire-500 focus:bg-white transition-all text-slate-800 focus:shadow-lg focus:shadow-fire-500/20">
+                                </div>
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="block text-[10px] uppercase tracking-widest text-slate-600 font-bold">Email Address</label>
+                                <input type="email" id="heroEmail" required placeholder="ruth@example.com" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fire-500 focus:bg-white transition-all text-slate-800 focus:shadow-lg focus:shadow-fire-500/20">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="block text-[10px] uppercase tracking-widest text-slate-600 font-bold">Mobile / WhatsApp</label>
+                                <input type="tel" id="heroPhone" required placeholder="+263 77 123 4567" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fire-500 focus:bg-white transition-all text-slate-800 focus:shadow-lg focus:shadow-fire-500/20">
+                            </div>
+                            <div class="pt-1">
+                                <button type="button" onclick="heroStepNext(1)" class="w-full bg-gradient-to-r from-fire-600 to-amber-500 hover:from-amber-500 hover:to-fire-600 text-white font-extrabold text-xs tracking-widest uppercase py-3.5 rounded-xl transition-all duration-300 transform active:scale-[0.98] flex items-center justify-center gap-2 shadow-lg shadow-fire-600/20 hover-lift">
+                                    Next <i class="fa-solid fa-arrow-right animate-pulse"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 2 -->
+                        <div id="heroStep2" class="hero-step hidden space-y-4">
+                            <div class="space-y-1.5">
+                                <label class="block text-[10px] uppercase tracking-widest text-slate-600 font-bold">City / Location</label>
+                                <input type="text" id="heroCity" required placeholder="Harare, Zimbabwe" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fire-500 focus:bg-white transition-all text-slate-800 focus:shadow-lg focus:shadow-fire-500/20">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="block text-[10px] uppercase tracking-widest text-slate-600 font-bold">Home Church / Ministry</label>
+                                <input type="text" id="heroChurch" placeholder="Heartfelt Ashdown Park Assembly" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fire-500 focus:bg-white transition-all text-slate-800 focus:shadow-lg focus:shadow-fire-500/20">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="block text-[10px] uppercase tracking-widest text-slate-600 font-bold">Title / Designation</label>
+                                <select id="heroTier" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fire-500 focus:bg-white transition-all text-slate-800 focus:shadow-lg focus:shadow-fire-500/20">
+                                    <option value="Pastor">Pastor</option>
+                                    <option value="Apostle">Apostle</option>
+                                    <option value="Prophet">Prophet</option>
+                                    <option value="Evangelist">Evangelist</option>
+                                    <option value="Minister">Minister</option>
+                                    <option value="General">General</option>
+                                </select>
+                            </div>
+                            <div class="flex gap-3 pt-1">
+                                <button type="button" onclick="heroStepPrev()" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-extrabold text-xs tracking-widest uppercase py-3.5 rounded-xl transition-all duration-300 border border-slate-200 hover-lift">
+                                    Back
+                                </button>
+                                <button type="button" onclick="heroStepNext(2)" class="flex-[2] bg-gradient-to-r from-fire-600 to-amber-500 hover:from-amber-500 hover:to-fire-600 text-white font-extrabold text-xs tracking-widest uppercase py-3.5 rounded-xl transition-all duration-300 transform active:scale-[0.98] flex items-center justify-center gap-2 shadow-lg shadow-fire-600/20 hover-lift">
+                                    Next <i class="fa-solid fa-arrow-right animate-pulse"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 3 -->
+                        <div id="heroStep3" class="hero-step hidden space-y-5">
+                            <div class="text-center space-y-2 animate-scale-in">
+                                <div class="w-14 h-14 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-600 flex items-center justify-center text-2xl mx-auto animate-bounce">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900">Review & Confirm</h3>
+                                <p class="text-[11px] text-slate-500">Please verify your details before generating your gate pass.</p>
+                            </div>
+                            <div class="glass p-5 rounded-xl border border-slate-200 text-sm space-y-2">
+                                <div class="flex justify-between"><span class="text-slate-500">Full Name:</span> <span id="heroSumName" class="font-bold text-slate-900">-</span></div>
+                                <div class="flex justify-between"><span class="text-slate-500">Email:</span> <span id="heroSumEmail" class="font-bold text-slate-900">-</span></div>
+                                <div class="flex justify-between"><span class="text-slate-500">Phone:</span> <span id="heroSumPhone" class="font-bold text-slate-900">-</span></div>
+                                <div class="flex justify-between"><span class="text-slate-500">Location:</span> <span id="heroSumCity" class="font-bold text-slate-900">-</span></div>
+                                <div class="flex justify-between"><span class="text-slate-500">Church:</span> <span id="heroSumChurch" class="font-bold text-slate-900">-</span></div>
+                                <div class="flex justify-between"><span class="text-slate-500">Tier:</span> <span id="heroSumTier" class="font-bold text-amber-600 uppercase tracking-widest text-xs">-</span></div>
+                            </div>
+                            <div class="flex gap-3 pt-1">
+                                <button type="button" onclick="heroStepPrev()" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-extrabold text-xs tracking-widest uppercase py-3.5 rounded-xl transition-all duration-300 border border-slate-200 hover-lift">
+                                    Back
+                                </button>
+                                <button type="button" onclick="confirmHeroRegistration()" class="flex-[2] bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-teal-500 hover:to-emerald-600 text-white font-extrabold text-xs tracking-widest uppercase py-3.5 rounded-xl transition-all duration-300 transform active:scale-[0.98] flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/10 hover-lift">
+                                    Confirm Registration <i class="fa-solid fa-check animate-pulse"></i>
+                                </button>
+                            </div>
+                            <div id="heroConfirmMsg" class="hidden text-center py-3 animate-fade-in">
+                                <p class="text-emerald-600 font-bold text-sm">Registration confirmed! Your pass has been generated.</p>
+                                <button type="button" onclick="downloadTicketAsPDF()" class="mt-2 bg-fire-600 hover:bg-fire-500 text-white font-extrabold text-xs tracking-widest uppercase px-6 py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg mx-auto">
+                                    <i class="fa-solid fa-file-pdf"></i> Download Confirmation Pass
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+                <!-- Right: Promotional Image with Logo -->
+                <div class="relative bg-slate-100 order-1 min-h-[280px] sm:min-h-[320px] lg:order-2 lg:min-h-[600px] animate-slide-in-right overflow-hidden">
+                    <img src="images/WOF with preachers 2026.png" alt="Women on Fire 2026 with preachers" class="absolute inset-0 w-full h-full object-cover object-top">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent"></div>
+                    
+                </div>
+            </div>
+
+            <!-- Countdown & Quick Links -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8 animate-fade-in" style="animation-delay: 0.3s;">
+                <div class="glass p-6 rounded-2xl border border-white/80 card-enter hover-lift">
+                    <h3 class="text-sm font-extrabold uppercase tracking-widest text-amber-600 mb-4 flex items-center gap-2">
+                        <i class="fa-regular fa-clock animate-rotate-smooth" style="animation-duration: 4s;"></i> Countdown to Event
+                    </h3>
+                    <div class="grid grid-cols-4 gap-2 max-w-md">
+                        <div class="bg-slate-100 border border-slate-200 rounded-xl p-3 text-center stagger-item">
+                            <div id="days" class="text-xl font-black text-slate-900 animate-bounce-subtle">00</div>
+                            <div class="text-[9px] uppercase tracking-wider text-slate-500">Days</div>
+                        </div>
+                        <div class="bg-slate-100 border border-slate-200 rounded-xl p-3 text-center stagger-item">
+                            <div id="hours" class="text-xl font-black text-slate-900 animate-bounce-subtle">00</div>
+                            <div class="text-[9px] uppercase tracking-wider text-slate-500">Hrs</div>
+                        </div>
+                        <div class="bg-slate-100 border border-slate-200 rounded-xl p-3 text-center stagger-item">
+                            <div id="minutes" class="text-xl font-black text-slate-900 animate-bounce-subtle">00</div>
+                            <div class="text-[9px] uppercase tracking-wider text-slate-500">Mins</div>
+                        </div>
+                        <div class="bg-slate-100 border border-slate-200 rounded-xl p-3 text-center stagger-item">
+                            <div id="seconds" class="text-xl font-black text-slate-900 animate-bounce-subtle">00</div>
+                            <div class="text-[9px] uppercase tracking-wider text-slate-500">Secs</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-6 rounded-2xl border border-white/80 card-enter hover-lift flex flex-col justify-center">
+                    <h3 class="text-sm font-extrabold uppercase tracking-widest text-slate-900 mb-3">Hosted By</h3>
+                    <p class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-users text-fire-500"></i> Apostle Tavonga & Pastor Chipo Vutabwashe
+                    </p>
+                    <p class="text-xs text-slate-500 mt-2">Special Guest: Pastor Jessica Kayanja, Prophetess S Nyathi, Ruth Makandiwa, Prophetess Matimbire</p>
+                </div>
+            </div>
+
+            <!-- Conference Highlights and Focus Areas -->
+            <div class="glass p-8 rounded-3xl border border-white/80 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left card-enter hover-lift animate-fade-in" style="animation-delay: 0.5s;">
+                <div class="space-y-2 stagger-item transition-smooth hover:scale-105">
+                    <div class="w-12 h-12 rounded-xl bg-fire-100 flex items-center justify-center text-fire-600 text-xl mx-auto md:mx-0 animate-bounce-subtle">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-lg">Fiery Prophetic Alignment</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">Spiritual warfare, powerful impartation services, and authoritative decrees seeking divine intervention in your family and life.</p>
+                </div>
+                <div class="space-y-2 stagger-item transition-smooth hover:scale-105" style="animation-delay: 0.1s;">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center text-amber-600 text-xl mx-auto md:mx-0 animate-bounce-subtle">
+                        <i class="fa-solid fa-shield"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-lg">Express Check-In System</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">Reserve your spot and instantly generate a secure, scannable barcode-protected check-in pass. Present it at the gate for fast entry.</p>
+                </div>
+                <div class="space-y-2 stagger-item transition-smooth hover:scale-105" style="animation-delay: 0.2s;">
+                    <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center text-purple-600 text-xl mx-auto md:mx-0 animate-bounce-subtle">
+                        <i class="fa-solid fa-microphone-lines"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-lg">Live Multicast & Coverage</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">Broadcasting internationally live across our media channels. Reserve your seat for maximum physical impartation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- REGISTRATION SECTION VIEW -->
+        <section id="viewRegister" class="view-panel hidden max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 animate-fade-in text-slate-800">
+            <div class="glass border border-white/80 rounded-3xl p-6 md:p-10 shadow-2xl relative overflow-hidden card-enter">
+                
+                <!-- Dynamic Progress Line Indicator -->
+                <div class="absolute top-0 left-0 right-0 h-1.5 bg-slate-200">
+                    <div id="formProgress" class="h-full bg-gradient-to-r from-fire-600 via-orange-500 to-amber-400 w-1/3 transition-all duration-700 ease-out shadow-lg shadow-fire-600/20"></div>
+                </div>
+
+                <!-- Step Counter / Back Nav Button -->
+                <div class="flex items-center justify-between mb-8 animate-slide-in-down">
+                    <div class="flex items-center gap-2">
+                        <span id="stepCounter" class="bg-fire-100 text-fire-700 font-extrabold text-xs px-3 py-1.5 rounded-full border border-fire-200 animate-pulse">Step 1 of 3</span>
+                        <h2 class="text-lg font-bold text-slate-900 uppercase tracking-wider">Secure Your Spot</h2>
+                    </div>
+                    <button id="btnPrevStep" onclick="stepPrevious()" class="hidden text-xs text-slate-500 hover:text-slate-800 transition-colors hover:scale-110 duration-300">
+                        <i class="fa-solid fa-chevron-left mr-1"></i> Back
+                    </button>
+                </div>
+
+                <!-- Registration Forms Container -->
+                <form id="regForm" onsubmit="handleRegistrationSubmit(event)" class="space-y-6">
+                    
+                    <!-- STEP 1: Personal Particulars -->
+                    <div id="stepPanel1" class="step-panel space-y-5 animate-fade-in">
+                        <div class="space-y-2 animate-slide-in-up">
+                            <h3 class="text-xl font-bold text-slate-900">Let us get to know you</h3>
+                            <p class="text-xs text-slate-500">Please provide your genuine contact credentials. Digital badge generation depends on these values.</p>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-2 stagger-item">
+                                <label class="block text-xs uppercase tracking-widest text-slate-600 font-bold">First Name</label>
+                                <input type="text" id="regFirstName" required placeholder="e.g., Ruth" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fire-500 focus:bg-white transition-all text-slate-800 focus:shadow-lg focus:shadow-fire-500/20">
+                            </div>
+                            <div class="space-y-2 stagger-item">
+                                <label class="block text-xs uppercase tracking-widest text-slate-600 font-bold">Last Name</label>
+                                <input type="text" id="regLastName" required placeholder="e.g., Moyo" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fire-500 focus:bg-white transition-all text-slate-800 focus:shadow-lg focus:shadow-fire-500/20">
+                            </div>
+                        </div>
+                        <div class="space-y-2 stagger-item">
+                            <label class="block text-xs uppercase tracking-widest text-slate-600 font-bold">Email Address</label>
+                            <input type="email" id="regEmail" required placeholder="ruth@example.com" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fire-500 focus:bg-white transition-all text-slate-800 focus:shadow-lg focus:shadow-fire-500/20">
+                        </div>
+                        <div class="space-y-2 stagger-item">
+                            <label class="block text-xs uppercase tracking-widest text-slate-600 font-bold">Mobile / WhatsApp Number</label>
+                            <input type="tel" id="regPhone" required placeholder="+263 77 123 4567" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fire-500 focus:bg-white transition-all text-slate-800 focus:shadow-lg focus:shadow-fire-500/20">
+                        </div>
+                        <div class="pt-2 stagger-item" style="animation-delay: 0.4s;">
+                            <button type="button" onclick="stepNext(1)" class="w-full bg-gradient-to-r from-fire-600 to-amber-500 hover:from-amber-500 hover:to-fire-600 text-white font-extrabold text-xs tracking-widest uppercase py-4 rounded-xl transition-all duration-300 transform active:scale-[0.98] flex items-center justify-center gap-2 hover-lift shadow-lg shadow-fire-600/20">
+                                Next Details <i class="fa-solid fa-arrow-right animate-pulse"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Attendance details -->
+                    <div id="stepPanel2" class="step-panel hidden space-y-5 animate-fade-in">
+                        <div class="space-y-2 animate-slide-in-up">
+                            <h3 class="text-xl font-bold text-slate-900">Location & Ministry Profile</h3>
+                            <p class="text-xs text-slate-500">Help our reception team plan better by sharing your origin city and ministry alignment details.</p>
+                        </div>
+                        <div class="space-y-2 stagger-item">
+                            <label class="block text-xs uppercase tracking-widest text-slate-600 font-bold">Current City / Location</label>
+                            <input type="text" id="regCity" required placeholder="e.g., Harare, Zimbabwe" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fire-500 focus:bg-white transition-all text-slate-800 focus:shadow-lg focus:shadow-fire-500/20">
+                        </div>
+                        <div class="space-y-2 stagger-item">
+                            <label class="block text-xs uppercase tracking-widest text-slate-600 font-bold">Your Home Church / Ministry Affiliation</label>
+                            <input type="text" id="regChurch" placeholder="e.g., Heartfelt Ashdown Park Assembly" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fire-500 focus:bg-white transition-all text-slate-800 focus:shadow-lg focus:shadow-fire-500/20">
+                        </div>
+                        <div class="space-y-2 stagger-item">
+                            <label class="block text-xs uppercase tracking-widest text-slate-600 font-bold">Title / Designation</label>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                <label class="border border-slate-200 rounded-xl p-3 flex flex-col items-center text-center cursor-pointer bg-white/60 hover:bg-white hover:border-fire-500/40 transition-all relative hover-lift card-enter">
+                                    <input type="radio" name="regTier" value="Pastor" checked class="absolute top-2 right-2 accent-fire-500">
+                                    <span class="font-bold text-xs text-slate-800">Pastor</span>
+                                </label>
+                                <label class="border border-slate-200 rounded-xl p-3 flex flex-col items-center text-center cursor-pointer bg-white/60 hover:bg-white hover:border-fire-500/40 transition-all relative hover-lift card-enter">
+                                    <input type="radio" name="regTier" value="Apostle" class="absolute top-2 right-2 accent-fire-500">
+                                    <span class="font-bold text-xs text-slate-800">Apostle</span>
+                                </label>
+                                <label class="border border-slate-200 rounded-xl p-3 flex flex-col items-center text-center cursor-pointer bg-white/60 hover:bg-white hover:border-fire-500/40 transition-all relative hover-lift card-enter">
+                                    <input type="radio" name="regTier" value="Prophet" class="absolute top-2 right-2 accent-fire-500">
+                                    <span class="font-bold text-xs text-slate-800">Prophet</span>
+                                </label>
+                                <label class="border border-slate-200 rounded-xl p-3 flex flex-col items-center text-center cursor-pointer bg-white/60 hover:bg-white hover:border-fire-500/40 transition-all relative hover-lift card-enter">
+                                    <input type="radio" name="regTier" value="Evangelist" class="absolute top-2 right-2 accent-fire-500">
+                                    <span class="font-bold text-xs text-slate-800">Evangelist</span>
+                                </label>
+                                <label class="border border-slate-200 rounded-xl p-3 flex flex-col items-center text-center cursor-pointer bg-white/60 hover:bg-white hover:border-fire-500/40 transition-all relative hover-lift card-enter">
+                                    <input type="radio" name="regTier" value="Minister" class="absolute top-2 right-2 accent-fire-500">
+                                    <span class="font-bold text-xs text-slate-800">Minister</span>
+                                </label>
+                                <label class="border border-slate-200 rounded-xl p-3 flex flex-col items-center text-center cursor-pointer bg-white/60 hover:bg-white hover:border-fire-500/40 transition-all relative hover-lift card-enter">
+                                    <input type="radio" name="regTier" value="General" class="absolute top-2 right-2 accent-fire-500">
+                                    <span class="font-bold text-xs text-slate-800">General</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="pt-2 stagger-item" style="animation-delay: 0.3s;">
+                            <button type="button" onclick="stepNext(2)" class="w-full bg-gradient-to-r from-fire-600 to-amber-500 hover:from-amber-500 hover:to-fire-600 text-white font-extrabold text-xs tracking-widest uppercase py-4 rounded-xl transition-all duration-300 transform active:scale-[0.98] flex items-center justify-center gap-2 hover-lift shadow-lg shadow-fire-600/20">
+                                Next Details <i class="fa-solid fa-arrow-right animate-pulse"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Confirm Details and Complete Badge Generation -->
+                    <div id="stepPanel3" class="step-panel hidden space-y-6 animate-fade-in">
+                        <div class="space-y-2 text-center animate-scale-in">
+                            <div class="w-16 h-16 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-4 animate-bounce">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-900 animate-slide-in-down">Registration Complete</h3>
+                            <p class="text-xs text-slate-500 max-w-md mx-auto animate-slide-in-up">Review your details below before generating your dynamic gate pass. Ensure you present this pass at Ashdown Park.</p>
+                        </div>
+
+                        <!-- Mini Summary Review Box -->
+                        <div class="glass p-5 rounded-xl border border-slate-200 text-sm space-y-2 max-w-md mx-auto card-enter">
+                            <div class="flex justify-between stagger-item"><span class="text-slate-500">Full Name:</span> <span id="sumName" class="font-bold text-slate-900">-</span></div>
+                            <div class="flex justify-between stagger-item"><span class="text-slate-500">Email:</span> <span id="sumEmail" class="font-bold text-slate-900">-</span></div>
+                            <div class="flex justify-between stagger-item"><span class="text-slate-500">Phone:</span> <span id="sumPhone" class="font-bold text-slate-900">-</span></div>
+                            <div class="flex justify-between stagger-item"><span class="text-slate-500">Location:</span> <span id="sumCity" class="font-bold text-slate-900">-</span></div>
+                            <div class="flex justify-between stagger-item"><span class="text-slate-500">Church:</span> <span id="sumChurch" class="font-bold text-slate-900">-</span></div>
+                            <div class="flex justify-between stagger-item"><span class="text-slate-500">Tier:</span> <span id="sumTier" class="font-bold text-amber-600 uppercase tracking-widest text-xs">-</span></div>
+                        </div>
+
+                        <div class="pt-2 stagger-item" style="animation-delay: 0.5s;">
+                            <button type="button" onclick="confirmRegistration()" class="w-full bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-teal-500 hover:to-emerald-600 text-white font-extrabold text-xs tracking-widest uppercase py-4 rounded-xl transition-all duration-300 transform active:scale-[0.98] flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/10 hover-lift">
+                                Confirm & Generate Pass <i class="fa-solid fa-check animate-pulse"></i>
+                            </button>
+                            <div id="regConfirmMsg" class="hidden text-center py-3 animate-fade-in">
+                                <p class="text-emerald-600 font-bold text-sm">Registration confirmed! Your pass has been generated.</p>
+                                <button type="button" onclick="downloadTicketAsPDF()" class="mt-2 bg-fire-600 hover:bg-fire-500 text-white font-extrabold text-xs tracking-widest uppercase px-6 py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg mx-auto">
+                                    <i class="fa-solid fa-file-pdf"></i> Download Confirmation Pass
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+                <!-- FINAL TICKET BADGE SCREEN (AFTER REGISTRATION SUCCESS) -->
+                <div id="ticketSuccessPanel" class="hidden space-y-8 animate-fade-in">
+                    <div class="text-center space-y-2 animate-slide-in-down">
+                        <div class="inline-flex items-center gap-2 bg-emerald-100 border border-emerald-200 text-emerald-700 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest animate-bounce">
+                            <i class="fa-solid fa-circle-check"></i> Spot Secured Successfully
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-black title-font text-slate-900 animate-slide-in-up">Your Conference Pass is Ready!</h3>
+                        <p class="text-xs text-slate-500 animate-fade-in" style="animation-delay: 0.2s;">Please print this badge or take a screenshot to show on gate check-in.</p>
+                    </div>
+
+                    <!-- Layout of Printable Ticket Badge -->
+                    <div id="badgePrintSection" class="max-w-md mx-auto glass border-2 border-fire-500 rounded-3xl overflow-hidden relative shadow-2xl bg-gradient-to-b from-white to-slate-50 text-slate-800 card-enter hover-lift">
+                        <!-- Top Header Logo Strip of the Badge -->
+                        <div class="bg-gradient-to-r from-fire-600 to-amber-500 px-6 py-4 flex justify-between items-center text-white animate-gradient-shift" style="background-size: 200% 200%;">
+                            <div>
+                                <h4 class="font-black text-xs uppercase tracking-widest">Women On Fire</h4>
+                                <p class="text-[9px] uppercase tracking-widest text-white/80">Conference 2026</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="bg-black/20 px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider" id="badgeTier">GENERAL PASS</span>
+                            </div>
+                        </div>
+
+                        <!-- Main Core of Badge -->
+                        <div class="p-6 space-y-6 text-center">
+                            <!-- Theme reminder strip -->
+                            <div class="border-b border-slate-150 pb-4 animate-slide-in-down" style="animation-delay: 0.1s;">
+                                <h5 class="text-[10px] text-amber-600 font-bold uppercase tracking-widest">Oh God of Vengeance Show Yourself</h5>
+                                <p class="text-xs text-slate-500 mt-1">1 - 4 July 2026 | Harare, Zimbabwe</p>
+                            </div>
+
+                            <!-- Inviting / Host profile header preview inside card badge -->
+                            <div class="text-xs text-slate-500 font-medium animate-fade-in" style="animation-delay: 0.2s;">
+                                Hosted by <strong class="text-slate-900">Apostle Tavonga & Pastor Chipo Vutabwashe</strong>
+                            </div>
+
+                            <!-- Name of Registrant -->
+                            <div class="space-y-1 animate-slide-in-up" style="animation-delay: 0.3s;">
+                                <p class="text-2xl font-extrabold text-slate-900 tracking-wide" id="badgeName">Ruth Moyo</p>
+                                <p class="text-[11px] text-slate-500" id="badgeEmail">ruth@example.com</p>
+                                <p class="text-[11px] text-slate-500" id="badgePhone">+263 77 123 4567</p>
+                            </div>
+
+                            <!-- Location Detail Badge Indicator -->
+                            <div class="flex justify-center gap-6 text-xs text-slate-700 animate-fade-in" style="animation-delay: 0.4s;">
+                                <div>
+                                    <p class="text-slate-400 text-[9px] uppercase tracking-wider">Origin Location</p>
+                                    <p class="font-bold text-slate-900 mt-0.5" id="badgeCity">Harare</p>
+                                </div>
+                                <div class="w-px bg-slate-200"></div>
+                                <div>
+                                    <p class="text-slate-400 text-[9px] uppercase tracking-wider">Church Affiliation</p>
+                                    <p class="font-bold text-slate-900 mt-0.5" id="badgeChurch">Heartfelt Ministries</p>
+                                </div>
+                            </div>
+
+                            <!-- Simulated Custom Vector/Inline SVG QR Code representation -->
+                            <div class="bg-slate-900 p-3 rounded-2xl w-36 h-36 mx-auto flex flex-col items-center justify-center shadow-lg relative card-enter" style="animation-delay: 0.5s;">
+                                <div class="absolute inset-2 border-2 border-dashed border-slate-800 rounded-lg flex items-center justify-center">
+                                    <svg class="w-28 h-28 text-white animate-pulse" viewBox="0 0 100 100" fill="currentColor">
+                                        <!-- Generated pattern layout representing dynamic check-in keys -->
+                                        <path d="M0,0 h30 v10 h-20 v20 h-10 z M70,0 h30 v30 h-10 v-20 h-20 z M0,70 h10 v20 h20 v10 h-30 z M90,70 h10 v30 h-30 v-10 h20 z" />
+                                        <rect x="15" y="15" width="15" height="15" fill="currentColor"/>
+                                        <rect x="70" y="15" width="15" height="15" fill="currentColor"/>
+                                        <rect x="15" y="70" width="15" height="15" fill="currentColor"/>
+                                        <rect x="40" y="40" width="20" height="20" fill="currentColor" class="text-fire-500 animate-bounce"/>
+                                        <rect x="45" y="15" width="10" height="10" fill="currentColor"/>
+                                        <rect x="15" y="45" width="10" height="10" fill="currentColor"/>
+                                        <rect x="70" y="45" width="10" height="10" fill="currentColor"/>
+                                        <rect x="45" y="70" width="10" height="10" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Uniquely Generated Ticket Number Pass ID -->
+                            <div class="space-y-1 animate-slide-in-up" style="animation-delay: 0.6s;">
+                                <p class="text-[9px] uppercase tracking-widest text-slate-500">Dynamic Entry Pass ID</p>
+                                <p class="font-mono text-sm font-black text-amber-600 animate-pulse" id="badgeID">WOF-2026-X812</p>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Security Strip -->
+                        <div class="bg-slate-100 border-t border-slate-200 py-3 text-center text-[10px] text-slate-500 font-bold uppercase tracking-widest animate-slide-in-up" style="animation-delay: 0.7s;">
+                            <i class="fa-solid fa-shield-halved text-fire-500 mr-1.5 animate-pulse"></i> Validated Entry Security Gate Pass
+                        </div>
+                    </div>
+
+                    <!-- Action Controls for Created Ticket -->
+                    <div class="flex flex-wrap gap-4 items-center justify-center stagger-item" style="animation-delay: 0.8s;">
+                        <button onclick="window.print()" class="bg-slate-900 text-white hover:bg-slate-800 font-extrabold text-xs tracking-widest uppercase px-6 py-3.5 rounded-xl transition-all duration-300 flex items-center gap-2 shadow-lg hover-lift">
+                            <i class="fa-solid fa-print"></i> Print Badge Pass
+                        </button>
+                        <button onclick="downloadTicketAsPDF()" class="bg-white hover:bg-slate-50 text-slate-700 font-extrabold text-xs tracking-widest uppercase px-6 py-3.5 rounded-xl border border-slate-200 transition-all duration-300 flex items-center gap-2 hover-lift">
+                            <i class="fa-solid fa-file-pdf"></i> Download PDF
+                        </button>
+                        <button onclick="downloadAsJSON()" class="bg-white hover:bg-slate-50 text-slate-700 font-extrabold text-xs tracking-widest uppercase px-6 py-3.5 rounded-xl border border-slate-200 transition-all duration-300 flex items-center gap-2 hover-lift">
+                            <i class="fa-solid fa-file-invoice"></i> Save Digital Record
+                        </button>
+                        <button onclick="resetRegistrationForm()" class="text-xs text-slate-500 hover:text-slate-800 underline transition-colors hover:scale-110 duration-300">
+                            Register Another Spot
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ADMIN PORTAL SECTION VIEW -->
+        <section id="viewAdmin" class="view-panel hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-fade-in text-slate-800">
+            
+            <!-- Quick Dashboard Analytics Header Stats -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <!-- Stat Card 1 -->
+                <div class="glass p-5 rounded-2xl border border-white/80 flex items-center gap-4 card-enter hover-lift stagger-item transition-smooth">
+                    <div class="w-12 h-12 rounded-xl bg-fire-100 text-fire-600 flex items-center justify-center text-xl animate-bounce-subtle">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Total Registered</p>
+                        <h4 class="text-2xl font-black text-slate-900" id="statTotal">0</h4>
+                    </div>
+                </div>
+
+                <!-- Stat Card 2 -->
+                <div class="glass p-5 rounded-2xl border border-white/80 flex items-center gap-4 card-enter hover-lift stagger-item transition-smooth" style="animation-delay: 0.1s;">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl animate-bounce-subtle">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Leaders</p>
+                        <h4 class="text-2xl font-black text-slate-900" id="statVIP">0</h4>
+                    </div>
+                </div>
+
+                <!-- Stat Card 3 -->
+                <div class="glass p-5 rounded-2xl border border-white/80 flex items-center gap-4 card-enter hover-lift stagger-item transition-smooth" style="animation-delay: 0.2s;">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl animate-bounce-subtle">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Checked In</p>
+                        <h4 class="text-2xl font-black text-slate-900" id="statCheckedIn">0</h4>
+                    </div>
+                </div>
+
+                <!-- Stat Card 4 -->
+                <div class="glass p-5 rounded-2xl border border-white/80 flex items-center gap-4 card-enter hover-lift stagger-item transition-smooth" style="animation-delay: 0.3s;">
+                    <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl animate-bounce-subtle">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Clergy Delegates</p>
+                        <h4 class="text-2xl font-black text-slate-900" id="statClergy">0</h4>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Database / Registrants Listing View Control Panel -->
+            <div class="glass rounded-3xl border border-white/80 overflow-hidden shadow-xl card-enter">
+                <!-- Filtering Bar Header -->
+                <div class="p-6 border-b border-slate-200 flex flex-col md:flex-row gap-4 items-center justify-between bg-white/40 animate-slide-in-down">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900">Registered Delegates Database</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Live local records of the Women on Fire Conference 2026</p>
+                    </div>
+
+                    <!-- Search and Actions Row -->
+                    <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+                        <!-- Custom Search Box -->
+                        <div class="relative flex-grow md:flex-grow-0 md:w-64 transition-smooth">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-400 text-xs"></i>
+                            <input type="text" id="adminSearchInput" onkeyup="filterDatabase()" placeholder="Search delegate names..." class="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-4 py-2.5 text-xs focus:outline-none focus:border-fire-500 text-slate-800 focus:shadow-lg focus:shadow-fire-500/20 transition-smooth">
+                        </div>
+
+                        <!-- Dropdown Filter -->
+                        <select id="adminTierFilter" onchange="filterDatabase()" class="bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-fire-500 text-slate-700 transition-smooth focus:shadow-lg focus:shadow-fire-500/20">
+                            <option value="ALL">All Titles</option>
+                            <option value="Pastor">Pastor</option>
+                            <option value="Apostle">Apostle</option>
+                            <option value="Prophet">Prophet</option>
+                            <option value="Evangelist">Evangelist</option>
+                            <option value="Minister">Minister</option>
+                            <option value="General">General</option>
+                        </select>
+
+                        <!-- Export Data Button -->
+                        <button onclick="exportDatabaseToTXT()" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-colors hover-lift">
+                            <i class="fa-solid fa-file-export"></i> Export CSV
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Database Listing Grid Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50 text-[10px] uppercase tracking-widest text-slate-500 font-bold border-b border-slate-200">
+                                <th class="p-4 pl-6">Pass ID</th>
+                                <th class="p-4">Full Name</th>
+                                <th class="p-4">Contact Info</th>
+                                <th class="p-4">Origin / Church</th>
+                                <th class="p-4">Ticket Access Tier</th>
+                                <th class="p-4 text-center">Security Status</th>
+                                <th class="p-4 text-right pr-6">Action Checks</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminTableBody" class="divide-y divide-slate-100 text-xs transition-smooth">
+                            <!-- Dynamic Row Content Generated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Fallback Empty State inside admin table -->
+                <div id="adminEmptyState" class="hidden py-12 text-center text-slate-500 animate-fade-in">
+                    <i class="fa-solid fa-database text-4xl mb-3 text-slate-300 animate-pulse"></i>
+                    <p class="text-sm font-semibold">No delegate registrations found matching filter criteria.</p>
+                </div>
+            </div>
+
+            <!-- Safety / Database Maintenance Actions -->
+            <div class="flex justify-between items-center bg-white/50 p-4 rounded-xl border border-slate-200 text-xs card-enter hover-lift animate-slide-in-up">
+                <span class="text-slate-500"><i class="fa-solid fa-circle-info mr-1 text-amber-600"></i> Records are locally cached safely within your device's private storage database context.</span>
+                <button onclick="triggerResetConfirmation()" class="text-red-500 hover:text-red-600 transition-colors font-bold uppercase tracking-wider flex items-center gap-1.5 hover:scale-110 duration-300">
+                    <i class="fa-solid fa-trash-can"></i> Factory Database Reset
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Application Footer Details -->
+    <footer class="glass border-t border-white/80 py-6 mt-12 animate-fade-in" style="animation-delay: 0.5s;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+            <div class="text-center sm:text-left transition-smooth hover:scale-105">
+                <p class="font-bold text-slate-700">Heartfelt International Ministries 2026</p>
+                <p class="text-[10px] text-slate-400 mt-1 uppercase tracking-widest">Oh God of Vengeance Show Yourself!</p>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="https://www.youtube.com/@HeartfeltInternationalMinistries" target="_blank" class="text-red-600 hover:text-red-500 transition-colors flex items-center gap-1 hover:scale-110 duration-300">
+                    <i class="fa-brands fa-youtube animate-bounce-subtle"></i> Tavonga Vutabwashe Live
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS State Logic System Program -->
+    <script>
+        // Core In-Memory LocalStorage Database Keys
+        const STORAGE_KEY = 'wof_2026_registrations';
+
+        // Initial default seed delegates so system feels populated right away
+        const defaultSeededRegistrations = [
+            {
+                id: 'WOF-2026-N201',
+                firstName: 'Chipo',
+                lastName: 'Vutabwashe',
+                email: 'cvutabwashe@heartfelt.org',
+                phone: '+263 77 122 3344',
+                city: 'Harare, Zimbabwe',
+                church: 'Heartfelt International Ministries',
+                tier: 'Pastor',
+                checkedIn: true,
+                regDate: '2026-05-31T11:00:00.000Z'
+            },
+            {
+                id: 'WOF-2026-F981',
+                firstName: 'Sandra',
+                lastName: 'Makandiwa',
+                email: 'smakandiwa@example.net',
+                phone: '+263 78 889 0122',
+                city: 'Harare',
+                church: 'UFIC Assembly',
+                tier: 'Apostle',
+                checkedIn: false,
+                regDate: '2026-05-31T12:30:00.000Z'
+            },
+            {
+                id: 'WOF-2026-M503',
+                firstName: 'Grace',
+                lastName: 'Matimbire',
+                email: 'gmatimbire@gmail.com',
+                phone: '+263 71 556 1224',
+                city: 'Gweru',
+                church: 'Miracle Center Assembly',
+                tier: 'General',
+                checkedIn: false,
+                regDate: '2026-05-31T14:45:00.000Z'
+            }
+        ];
+
+        // Active Application Form step tracking state
+        let currentStep = 1;
+
+        // Custom Modal Confirm callback dynamic storage
+        let onConfirmCallback = null;
+
+        // Sound FX System using browser Native HTML Web Audio Synth API
+        function playChimeEffect(type) {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                const context = new AudioContext();
+                
+                if (type === 'success') {
+                    // Success digital register chime sound
+                    const now = context.currentTime;
+                    const osc = context.createOscillator();
+                    const gain = context.createGain();
+                    osc.connect(gain);
+                    gain.connect(context.destination);
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(523.25, now); // C5
+                    osc.frequency.setValueAtTime(659.25, now + 0.15); // E5
+                    osc.frequency.setValueAtTime(783.99, now + 0.3); // G5
+                    osc.frequency.setValueAtTime(1046.50, now + 0.45); // C6
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.8);
+                    osc.start(now);
+                    osc.stop(now + 0.85);
+                } else if (type === 'toggle') {
+                    // Quick state toggling blip sound
+                    const now = context.currentTime;
+                    const osc = context.createOscillator();
+                    const gain = context.createGain();
+                    osc.connect(gain);
+                    gain.connect(context.destination);
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(440, now); // A4
+                    osc.frequency.setValueAtTime(880, now + 0.1); // A5
+                    gain.gain.setValueAtTime(0.1, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+                    osc.start(now);
+                    osc.stop(now + 0.25);
+                } else if (type === 'reset') {
+                    // Deep reset drop sound
+                    const now = context.currentTime;
+                    const osc = context.createOscillator();
+                    const gain = context.createGain();
+                    osc.connect(gain);
+                    gain.connect(context.destination);
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(300, now);
+                    osc.frequency.exponentialRampToValueAtTime(80, now + 0.4);
+                    gain.gain.setValueAtTime(0.1, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+                    osc.start(now);
+                    osc.stop(now + 0.45);
+                }
+            } catch (e) {
+                console.warn('Audio synthesis initialized on non-user interact state or unsupported context.', e);
+            }
+        }
+
+        // Custom Notification Center dispatch (Modern replacement for unsafe alerts!)
+        let toastTimer = null;
+        function showToast(title, message, iconType = 'success') {
+            const toast = document.getElementById('toast');
+            const toastTitle = document.getElementById('toastTitle');
+            const toastMessage = document.getElementById('toastMessage');
+            const toastIcon = document.getElementById('toastIcon');
+
+            // Setup custom icon style dynamically
+            if (iconType === 'success') {
+                toastIcon.innerHTML = `<i class="fa-solid fa-circle-check text-xl text-emerald-400 animate-bounce"></i>`;
+            } else if (iconType === 'info') {
+                toastIcon.innerHTML = `<i class="fa-solid fa-circle-info text-xl text-blue-400 animate-pulse"></i>`;
+            } else if (iconType === 'warning') {
+                toastIcon.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-xl text-amber-500 animate-bounce"></i>`;
+            }
+
+            toastTitle.innerText = title;
+            toastMessage.innerText = message;
+
+            // Trigger entrance animation style transitions
+            toast.classList.remove('opacity-0', 'translate-y-[-100px]');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            if (toastTimer) clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                dismissToast();
+            }, 6000);
+        }
+
+        function dismissToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-100', 'translate-y-0');
+            toast.classList.add('opacity-0', 'translate-y-[-100px]');
+        }
+
+        // Custom Glass Confirmation Modal Box (Rule compliant modal to replace confirm dialog)
+        function showCustomModal(title, message, onConfirm) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalMessage').innerText = message;
+            
+            const modal = document.getElementById('customModal');
+            const modalContent = document.getElementById('customModalContent');
+            
+            modal.classList.remove('hidden');
+            modal.style.opacity = '1';
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 50);
+
+            onConfirmCallback = onConfirm;
+            
+            // Re-bind click event to confirm button
+            const confirmBtn = document.getElementById('modalConfirmBtn');
+            confirmBtn.onclick = function() {
+                if (onConfirmCallback) {
+                    onConfirmCallback();
+                }
+                closeCustomModal();
+            };
+        }
+
+        function closeCustomModal() {
+            const modal = document.getElementById('customModal');
+            const modalContent = document.getElementById('customModalContent');
+            
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.style.opacity = '0';
+            }, 200);
+        }
+
+        // Database Management Helper Routines
+        function getRegistrations() {
+            const localData = localStorage.getItem(STORAGE_KEY);
+            if (!localData) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultSeededRegistrations));
+                return defaultSeededRegistrations;
+            }
+            return JSON.parse(localData);
+        }
+
+        function saveRegistrations(data) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            updateAdminDashboard();
+        }
+
+        // Setup Countdown Engine targeting Wednesday, 1st July 2026 @ 6PM (18:00)
+        function startCountdown() {
+            const targetDate = new Date("2026-07-01T18:00:00+02:00").getTime();
+            
+            function updateClock() {
+                const now = new Date().getTime();
+                const difference = targetDate - now;
+                
+                if (difference < 0) {
+                    document.getElementById('days').innerText = "00";
+                    document.getElementById('hours').innerText = "00";
+                    document.getElementById('minutes').innerText = "00";
+                    document.getElementById('seconds').innerText = "00";
+                    return;
+                }
+                
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+                document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+                document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+            }
+            
+            updateClock();
+            setInterval(updateClock, 1000);
+        }
+
+        function switchView(viewName) {
+            document.querySelectorAll('.view-panel').forEach(panel => {
+                panel.classList.add('hidden');
+            });
+
+            const landing = document.getElementById('viewLanding');
+            const register = document.getElementById('viewRegister');
+            const admin = document.getElementById('viewAdmin');
+
+            if (viewName === 'landing') {
+                landing.classList.remove('hidden');
+            } else if (viewName === 'register') {
+                register.classList.remove('hidden');
+            } else if (viewName === 'admin') {
+                admin.classList.remove('hidden');
+                updateAdminDashboard();
+            }
+        }
+
+        // Multi-Step Wizard Forward Routing Validations
+        function stepNext(fromStep) {
+            if (fromStep === 1) {
+                const fName = document.getElementById('regFirstName').value.trim();
+                const lName = document.getElementById('regLastName').value.trim();
+                const email = document.getElementById('regEmail').value.trim();
+                const phone = document.getElementById('regPhone').value.trim();
+
+                if (!fName || !lName || !email || !phone) {
+                    showToast('Input Validation Error', 'Please complete all details to continue.', 'warning');
+                    return;
+                }
+
+                currentStep = 2;
+                updateWizardSteps();
+            } else if (fromStep === 2) {
+                const city = document.getElementById('regCity').value.trim();
+                if (!city) {
+                    showToast('Input Validation Error', 'Please provide your current city of origin.', 'warning');
+                    return;
+                }
+
+                // Render dynamic details into confirmation card
+                const chosenTier = document.querySelector('input[name="regTier"]:checked').value;
+                document.getElementById('sumName').innerText = `${document.getElementById('regFirstName').value} ${document.getElementById('regLastName').value}`;
+                document.getElementById('sumEmail').innerText = document.getElementById('regEmail').value;
+                document.getElementById('sumPhone').innerText = document.getElementById('regPhone').value;
+                document.getElementById('sumCity').innerText = city;
+                document.getElementById('sumChurch').innerText = document.getElementById('regChurch').value || 'Heartfelt Ministries Assembly';
+                document.getElementById('sumTier').innerText = chosenTier;
+
+                currentStep = 3;
+                updateWizardSteps();
+            }
+        }
+
+        function stepPrevious() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateWizardSteps();
+            }
+        }
+
+        // Synchronize step wizard layout
+        function updateWizardSteps() {
+            // Hide all subpanels
+            document.querySelectorAll('.step-panel').forEach(p => p.classList.add('hidden'));
+            
+            // Toggle Back Action Button
+            const backBtn = document.getElementById('btnPrevStep');
+            if (currentStep === 1) {
+                backBtn.classList.add('hidden');
+            } else {
+                backBtn.classList.remove('hidden');
+            }
+
+            // Show relevant active state step panel
+            document.getElementById(`stepPanel${currentStep}`).classList.remove('hidden');
+
+            // Synchronize Progress indicators
+            document.getElementById('stepCounter').innerText = `Step ${currentStep} of 3`;
+            const bar = document.getElementById('formProgress');
+            if (currentStep === 1) bar.style.width = '33.3%';
+            if (currentStep === 2) bar.style.width = '66.6%';
+            if (currentStep === 3) bar.style.width = '100%';
+        }
+
+        let heroCurrentStep = 1;
+
+        function heroStepNext(fromStep) {
+            if (fromStep === 1) {
+                const fName = document.getElementById('heroFirstName').value.trim();
+                const lName = document.getElementById('heroLastName').value.trim();
+                const email = document.getElementById('heroEmail').value.trim();
+                const phone = document.getElementById('heroPhone').value.trim();
+                if (!fName || !lName || !email || !phone) {
+                    showToast('Validation Error', 'Please complete all fields to continue.', 'warning');
+                    return;
+                }
+                heroCurrentStep = 2;
+                updateHeroSteps();
+            } else if (fromStep === 2) {
+                const city = document.getElementById('heroCity').value.trim();
+                if (!city) {
+                    showToast('Validation Error', 'Please provide your city of origin.', 'warning');
+                    return;
+                }
+                document.getElementById('heroSumName').innerText = `${document.getElementById('heroFirstName').value} ${document.getElementById('heroLastName').value}`;
+                document.getElementById('heroSumEmail').innerText = document.getElementById('heroEmail').value;
+                document.getElementById('heroSumPhone').innerText = document.getElementById('heroPhone').value;
+                document.getElementById('heroSumCity').innerText = city;
+                document.getElementById('heroSumChurch').innerText = document.getElementById('heroChurch').value || 'Heartfelt Ministries Assembly';
+                document.getElementById('heroSumTier').innerText = document.getElementById('heroTier').value;
+                heroCurrentStep = 3;
+                updateHeroSteps();
+            }
+        }
+
+        function heroStepPrev() {
+            if (heroCurrentStep > 1) {
+                heroCurrentStep--;
+                updateHeroSteps();
+            }
+        }
+
+        function updateHeroSteps() {
+            document.querySelectorAll('.hero-step').forEach(p => p.classList.add('hidden'));
+            document.getElementById(`heroStep${heroCurrentStep}`).classList.remove('hidden');
+
+            const bar = document.getElementById('heroProgress');
+            const label = document.getElementById('heroStepLabel');
+            const title = document.getElementById('heroStepTitle');
+            const dot1 = document.getElementById('heroDot1');
+            const dot2 = document.getElementById('heroDot2');
+            const dot3 = document.getElementById('heroDot3');
+
+            [dot1, dot2, dot3].forEach(d => {
+                d.classList.remove('bg-fire-600', 'bg-slate-300');
+                d.classList.add('bg-slate-300');
+            });
+
+            if (heroCurrentStep === 1) {
+                bar.style.width = '33.3%';
+                label.innerText = 'Step 1 of 3';
+                title.innerText = 'Personal Details';
+                dot1.classList.remove('bg-slate-300');
+                dot1.classList.add('bg-fire-600');
+            } else if (heroCurrentStep === 2) {
+                bar.style.width = '66.6%';
+                label.innerText = 'Step 2 of 3';
+                title.innerText = 'Location & Tier';
+                dot1.classList.remove('bg-slate-300');
+                dot1.classList.add('bg-fire-600');
+                dot2.classList.remove('bg-slate-300');
+                dot2.classList.add('bg-fire-600');
+            } else {
+                bar.style.width = '100%';
+                label.innerText = 'Step 3 of 3';
+                title.innerText = 'Confirm Details';
+                [dot1, dot2, dot3].forEach(d => {
+                    d.classList.remove('bg-slate-300');
+                    d.classList.add('bg-fire-600');
+                });
+            }
+        }
+
+        function finalizeRegistration(firstName, lastName, email, phone, city, church, tier) {
+            const randSuffix = Math.floor(1000 + Math.random() * 9000);
+            const generatedId = `WOF-2026-X${randSuffix}`;
+
+            const newRegistration = {
+                id: generatedId,
+                firstName,
+                lastName,
+                email,
+                phone,
+                city,
+                church,
+                tier,
+                checkedIn: false,
+                regDate: new Date().toISOString()
+            };
+
+            const database = getRegistrations();
+            database.push(newRegistration);
+            saveRegistrations(database);
+
+            document.getElementById('badgeName').innerText = `${firstName} ${lastName}`;
+            document.getElementById('badgeEmail').innerText = email;
+            document.getElementById('badgePhone').innerText = phone;
+            document.getElementById('badgeCity').innerText = city;
+            document.getElementById('badgeChurch').innerText = church;
+            document.getElementById('badgeID').innerText = generatedId;
+            document.getElementById('badgeTier').innerText = `${tier.toUpperCase()} PASS`;
+
+            const badgePrint = document.getElementById('badgePrintSection');
+            if (['Apostle', 'Prophet', 'Evangelist'].includes(tier)) {
+                badgePrint.style.borderColor = '#f59e0b';
+            } else if (['Pastor', 'Minister'].includes(tier)) {
+                badgePrint.style.borderColor = '#c084fc';
+            } else {
+                badgePrint.style.borderColor = '#ff4500';
+            }
+
+            document.getElementById('heroRegForm').classList.add('hidden');
+            document.getElementById('regForm').classList.add('hidden');
+            document.getElementById('ticketSuccessPanel').classList.remove('hidden');
+            document.getElementById('btnPrevStep').classList.add('hidden');
+            heroCurrentStep = 1;
+            updateHeroSteps();
+            currentStep = 1;
+            updateWizardSteps();
+
+            setTimeout(() => {
+                downloadTicketAsPDF();
+            }, 400);
+
+            playChimeEffect('success');
+            showToast('Registration Successful!', `Your spot as a ${tier} is officially secured. ID: ${generatedId}`, 'success');
+        }
+
+        function confirmHeroRegistration() {
+            const firstName = document.getElementById('heroFirstName').value.trim();
+            const lastName = document.getElementById('heroLastName').value.trim();
+            const email = document.getElementById('heroEmail').value.trim();
+            const phone = document.getElementById('heroPhone').value.trim();
+            const city = document.getElementById('heroCity').value.trim();
+            const tier = document.getElementById('heroTier').value;
+
+            if (!firstName || !lastName || !email || !phone || !city) {
+                showToast('Validation Error', 'Please complete all required fields.', 'warning');
+                return;
+            }
+
+            finalizeRegistration(firstName, lastName, email, phone, city, 'Heartfelt Ministries Assembly', tier);
+            document.getElementById('heroConfirmMsg').classList.remove('hidden');
+        }
+
+        // Handle inline hero registration form submission
+        function handleHeroRegistration(event) {
+            event.preventDefault();
+
+            const firstName = document.getElementById('heroFirstName').value.trim();
+            const lastName = document.getElementById('heroLastName').value.trim();
+            const email = document.getElementById('heroEmail').value.trim();
+            const phone = document.getElementById('heroPhone').value.trim();
+            const city = document.getElementById('heroCity').value.trim();
+            const tier = document.getElementById('heroTier').value;
+
+            if (!firstName || !lastName || !email || !phone || !city) {
+                showToast('Input Validation Error', 'Please complete all required fields.', 'warning');
+                return;
+            }
+
+            const randSuffix = Math.floor(1000 + Math.random() * 9000);
+            const generatedId = `WOF-2026-X${randSuffix}`;
+
+            const newRegistration = {
+                id: generatedId,
+                firstName,
+                lastName,
+                email,
+                phone,
+                city,
+                church: 'Heartfelt Ministries Assembly',
+                tier,
+                checkedIn: false,
+                regDate: new Date().toISOString()
+            };
+
+            const database = getRegistrations();
+            database.push(newRegistration);
+            saveRegistrations(database);
+
+            finalizeRegistration(firstName, lastName, email, phone, city, 'Heartfelt Ministries Assembly', tier);
+        }
+
+        function confirmRegistration() {
+            const firstName = document.getElementById('regFirstName').value.trim();
+            const lastName = document.getElementById('regLastName').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            const phone = document.getElementById('regPhone').value.trim();
+            const city = document.getElementById('regCity').value.trim();
+            const church = document.getElementById('regChurch').value.trim() || 'Heartfelt Ministries Assembly';
+            const tier = document.querySelector('input[name="regTier"]:checked').value;
+
+            if (!firstName || !lastName || !email || !phone || !city) {
+                showToast('Validation Error', 'Please complete all fields before confirming.', 'warning');
+                return;
+            }
+
+            finalizeRegistration(firstName, lastName, email, phone, city, church, tier);
+            document.getElementById('regConfirmMsg').classList.remove('hidden');
+        }
+
+        // Submit and Append New Delegate Ticket Registry
+        function handleRegistrationSubmit(event) {
+            event.preventDefault();
+            confirmRegistration();
+        }
+
+        // Reset wizard layout for another entry registration
+        function resetRegistrationForm() {
+            document.getElementById('regForm').reset();
+            document.getElementById('regForm').classList.remove('hidden');
+            document.getElementById('ticketSuccessPanel').classList.add('hidden');
+            currentStep = 1;
+            updateWizardSteps();
+        }
+
+        // Update / Redraw Admin Dashboard panel, metrics and search tables
+        function updateAdminDashboard() {
+            const database = getRegistrations();
+            
+            // Set dynamic header metrics badge in top navbar
+            const badge = document.getElementById('regCountBadge');
+            if (badge) badge.innerText = database.length;
+
+            // Compute analytics stats
+            const total = database.length;
+            const vipCount = database.filter(d => ['Apostle', 'Prophet', 'Evangelist'].includes(d.tier)).length;
+            const checkIns = database.filter(d => d.checkedIn).length;
+            const clergyCount = database.filter(d => ['Pastor', 'Apostle', 'Prophet'].includes(d.tier)).length;
+
+            // Render details to elements
+            document.getElementById('statTotal').innerText = total;
+            document.getElementById('statVIP').innerText = vipCount;
+            document.getElementById('statCheckedIn').innerText = checkIns;
+            document.getElementById('statClergy').innerText = clergyCount;
+
+            // Redraw delegate database list rows
+            filterDatabase();
+        }
+
+        // Interactive Filtering / Real-Time Searching within Admin table rows
+        function filterDatabase() {
+            const database = getRegistrations();
+            const searchVal = document.getElementById('adminSearchInput').value.toLowerCase().trim();
+            const filterVal = document.getElementById('adminTierFilter').value;
+
+            const tableBody = document.getElementById('adminTableBody');
+            tableBody.innerHTML = '';
+
+            const filteredData = database.filter(record => {
+                const fullName = `${record.firstName} ${record.lastName}`.toLowerCase();
+                const matchesSearch = fullName.includes(searchVal) || record.id.toLowerCase().includes(searchVal);
+                const matchesTier = (filterVal === 'ALL') || (record.tier === filterVal);
+                return matchesSearch && matchesTier;
+            });
+
+            if (filteredData.length === 0) {
+                document.getElementById('adminEmptyState').classList.remove('hidden');
+                return;
+            } else {
+                document.getElementById('adminEmptyState').classList.add('hidden');
+            }
+
+            filteredData.forEach((record, idx) => {
+                const row = document.createElement('tr');
+                row.className = "hover:bg-white/5 transition-colors border-b border-white/5 stagger-item";
+                row.style.animationDelay = `${idx * 0.05}s`;
+
+                // Choose tier badges dynamically
+                let tierBadge = '';
+                if (record.tier === 'Apostle' || record.tier === 'Prophet' || record.tier === 'Evangelist') {
+                    tierBadge = `<span class="bg-amber-950/80 border border-amber-500/40 text-amber-400 text-[10px] font-bold px-2.5 py-1 rounded-full"><i class="fa-solid fa-crown mr-1"></i> ${record.tier}</span>`;
+                } else if (record.tier === 'Pastor' || record.tier === 'Minister') {
+                    tierBadge = `<span class="bg-purple-950/80 border border-purple-500/40 text-purple-400 text-[10px] font-bold px-2.5 py-1 rounded-full"><i class="fa-solid fa-gem mr-1"></i> ${record.tier}</span>`;
+                } else {
+                    tierBadge = `<span class="bg-blue-950/80 border border-blue-500/40 text-blue-400 text-[10px] font-bold px-2.5 py-1 rounded-full"><i class="fa-solid fa-user mr-1"></i> ${record.tier}</span>`;
+                }
+
+                // Check-in status style selection
+                const checkInBadge = record.checkedIn 
+                    ? `<span class="bg-emerald-950 text-emerald-400 border border-emerald-500/30 text-[10px] font-semibold px-2 py-0.5 rounded-full animate-bounce-subtle"><i class="fa-solid fa-check-double mr-1"></i> Checked In</span>`
+                    : `<span class="bg-red-950 text-red-400 border border-red-500/30 text-[10px] font-semibold px-2 py-0.5 rounded-full"><i class="fa-solid fa-clock mr-1"></i> Pending</span>`;
+
+                const checkInBtnLabel = record.checkedIn ? 'Checkout' : 'Check In';
+                const checkInBtnClass = record.checkedIn
+                    ? 'bg-amber-600/20 hover:bg-amber-600/40 text-amber-400 border border-amber-500/30 hover:scale-105'
+                    : 'bg-emerald-600/20 hover:bg-emerald-600/40 text-emerald-400 border border-emerald-500/30 hover:scale-105';
+
+                row.innerHTML = `
+                    <td class="p-4 pl-6 font-mono font-bold text-gray-300">${record.id}</td>
+                    <td class="p-4 font-bold text-white">${record.firstName} ${record.lastName}</td>
+                    <td class="p-4 text-gray-400 space-y-0.5">
+                        <p class="text-[11px] font-semibold text-white">${record.email}</p>
+                        <p class="text-[10px]">${record.phone}</p>
+                    </td>
+                    <td class="p-4 text-gray-400 space-y-0.5">
+                        <p class="text-[11px] font-semibold text-white">${record.city}</p>
+                        <p class="text-[10px] italic">${record.church}</p>
+                    </td>
+                    <td class="p-4">${tierBadge}</td>
+                    <td class="p-4 text-center">${checkInBadge}</td>
+                    <td class="p-4 text-right pr-6 space-x-1.5 whitespace-nowrap">
+                        <button onclick="toggleCheckIn('${record.id}')" class="px-2.5 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all duration-300 ${checkInBtnClass}">
+                            ${checkInBtnLabel}
+                        </button>
+                        <button onclick="deleteRegistration('${record.id}')" class="px-2 py-1.5 rounded-lg text-[10px] font-black bg-red-600/10 hover:bg-red-600/20 text-red-400 border border-red-500/30 transition-all duration-300 hover:scale-105">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Live Administrative Gate Actions - CheckIn Delegates
+        function toggleCheckIn(id) {
+            let database = getRegistrations();
+            const recordIdx = database.findIndex(d => d.id === id);
+            
+            if (recordIdx > -1) {
+                database[recordIdx].checkedIn = !database[recordIdx].checkedIn;
+                saveRegistrations(database);
+                
+                playChimeEffect('toggle');
+                
+                const statusStr = database[recordIdx].checkedIn ? 'Checked In' : 'Checked Out';
+                showToast(
+                    'Security Status Update', 
+                    `${database[recordIdx].firstName} ${database[recordIdx].lastName} successfully ${statusStr}.`, 
+                    'info'
+                );
+            }
+        }
+
+        // Deleting individual attendee record from dashboard context
+        function deleteRegistration(id) {
+            let database = getRegistrations();
+            const record = database.find(d => d.id === id);
+            
+            if (record) {
+                showCustomModal(
+                    'Remove Registrant',
+                    `Are you sure you want to permanently remove ${record.firstName} ${record.lastName} from the registration list?`,
+                    function() {
+                        database = database.filter(d => d.id !== id);
+                        saveRegistrations(database);
+                        
+                        playChimeEffect('reset');
+                        showToast(
+                            'Record Revoked', 
+                            `Removed ${record.firstName} ${record.lastName} from local registration system context.`, 
+                            'warning'
+                        );
+                    }
+                );
+            }
+        }
+
+        // Export system records database locally as virtual downloadable text statement
+        function exportDatabaseToTXT() {
+            const database = getRegistrations();
+            let csvContent = "ID,First Name,Last Name,Email,Phone,City,Church,Tier,Checked In,Reg Date\n";
+            
+            database.forEach(d => {
+                csvContent += `"${d.id}","${d.firstName}","${d.lastName}","${d.email}","${d.phone}","${d.city}","${d.church}","${d.tier}",${d.checkedIn},"${d.regDate}"\n`;
+            });
+
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", "Women_On_Fire_2026_Delegates.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            playChimeEffect('toggle');
+            showToast('Export Success', 'Successfully compiled and downloaded delegate dataset to CSV.', 'success');
+        }
+
+        // Download ticket as PDF using jsPDF
+        function downloadTicketAsPDF() {
+            try {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                doc.setFont('helvetica', 'bold');
+                doc.setFontSize(18);
+                doc.setTextColor(40, 40, 40);
+                doc.text('Women on Fire 2026', 105, 20, { align: 'center' });
+
+                doc.setFont('helvetica', 'normal');
+                doc.setFontSize(11);
+                doc.setTextColor(80, 80, 80);
+                doc.text('Conference Gate Pass', 105, 28, { align: 'center' });
+
+                const yStart = 45;
+                const lineHeight = 8;
+                doc.setFontSize(12);
+                doc.setTextColor(20, 20, 20);
+
+                const rows = [
+                    ['Pass ID', document.getElementById('badgeID').innerText],
+                    ['Full Name', document.getElementById('badgeName').innerText],
+                    ['Email', document.getElementById('badgeEmail').innerText],
+                    ['Phone', document.getElementById('badgePhone').innerText],
+                    ['Title', document.getElementById('badgeTier').innerText],
+                    ['Church', document.getElementById('badgeChurch').innerText],
+                    ['City', document.getElementById('badgeCity').innerText],
+                    ['Venue', 'International Overflow Centre, Ashdown Park, Harare, Zimbabwe'],
+                    ['Dates', '1 - 4 July 2026']
+                ];
+
+                rows.forEach(([label, value], idx) => {
+                    const y = yStart + idx * lineHeight;
+                    doc.setFont('helvetica', 'bold');
+                    doc.setTextColor(100, 100, 100);
+                    doc.text(label + ':', 15, y);
+                    doc.setFont('helvetica', 'normal');
+                    doc.setTextColor(20, 20, 20);
+                    doc.text(String(value), 55, y);
+                });
+
+                doc.save('WOF_2026_Ticket_' + document.getElementById('badgeID').innerText + '.pdf');
+                playChimeEffect('toggle');
+                showToast('PDF Downloaded', 'Gate pass saved as PDF.', 'success');
+            } catch (err) {
+                console.error(err);
+                showToast('PDF Error', 'Unable to generate PDF. Please use Print instead.', 'warning');
+            }
+        }
+
+        // Download ticket as PDF using jsPDF
+        function downloadTicketAsPDF() {
+            try {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                
+                // Header background bar
+                doc.setFillColor(220, 38, 38);
+                doc.rect(0, 0, 210, 35, 'F');
+                
+                // Logo placeholder box (since we can't load external images from file://)
+                doc.setFillColor(255, 255, 255);
+                doc.roundedRect(15, 8, 20, 20, 3, 3, 'F');
+                doc.setTextColor(220, 38, 38);
+                doc.setFont('helvetica', 'bold');
+                doc.setFontSize(10);
+                doc.text('WOF', 25, 18, { align: 'center' });
+                doc.setFontSize(7);
+                doc.text('LOGO', 25, 23, { align: 'center' });
+                
+                // Conference title on header
+                doc.setTextColor(255, 255, 255);
+                doc.setFont('helvetica', 'bold');
+                doc.setFontSize(18);
+                doc.text('Women on Fire', 110, 18, { align: 'center' });
+                doc.setFontSize(11);
+                doc.text('Conference 2026', 110, 25, { align: 'center' });
+                
+                // Tier badge on header
+                const tierText = document.getElementById('badgeTier').innerText.replace(' PASS', '');
+                doc.setFillColor(0, 0, 0);
+                doc.roundedRect(160, 10, 35, 8, 2, 2, 'F');
+                doc.setFontSize(8);
+                doc.text(tierText.toUpperCase(), 177, 15, { align: 'center' });
+                
+                // Subheader
+                doc.setFillColor(245, 158, 11);
+                doc.rect(0, 35, 210, 8, 'F');
+                doc.setTextColor(255, 255, 255);
+                doc.setFont('helvetica', 'normal');
+                doc.setFontSize(9);
+                doc.text('Conference Gate Pass', 105, 41, { align: 'center' });
+
+                let y = 55;
+                const lineHeight = 8;
+                
+                // Ticket ID highlight box
+                doc.setFillColor(254, 249, 195);
+                doc.roundedRect(15, y - 4, 180, 10, 2, 2, 'F');
+                doc.setTextColor(120, 53, 15);
+                doc.setFont('helvetica', 'bold');
+                doc.setFontSize(11);
+                doc.text('Pass ID: ' + document.getElementById('badgeID').innerText, 105, y + 1, { align: 'center' });
+                y += 18;
+
+                const rows = [
+                    ['Full Name', document.getElementById('badgeName').innerText],
+                    ['Email', document.getElementById('badgeEmail').innerText],
+                    ['Phone', document.getElementById('badgePhone').innerText],
+                    ['Title', document.getElementById('badgeTier').innerText.replace(' PASS', '')],
+                    ['Church', document.getElementById('badgeChurch').innerText],
+                    ['City', document.getElementById('badgeCity').innerText],
+                    ['Venue', 'International Overflow Centre, Ashdown Park, Harare, Zimbabwe'],
+                    ['Dates', '1 - 4 July 2026']
+                ];
+
+                rows.forEach(([label, value]) => {
+                    doc.setDrawColor(229, 231, 235);
+                    doc.line(15, y - 2, 195, y - 2);
+                    doc.setFont('helvetica', 'bold');
+                    doc.setTextColor(100, 100, 100);
+                    doc.text(label + ':', 15, y);
+                    doc.setFont('helvetica', 'normal');
+                    doc.setTextColor(20, 20, 20);
+                    doc.text(String(value), 60, y);
+                    y += lineHeight;
+                });
+                
+                doc.setDrawColor(229, 231, 235);
+                doc.line(15, y - 2, 195, y - 2);
+
+                y += 10;
+                doc.setFillColor(16, 185, 129);
+                doc.roundedRect(15, y, 180, 10, 3, 3, 'F');
+                doc.setTextColor(255, 255, 255);
+                doc.setFont('helvetica', 'bold');
+                doc.setFontSize(10);
+                doc.text('Present this pass at Ashdown Park for gate entry', 105, y + 6, { align: 'center' });
+
+                doc.save('WOF_2026_Ticket_' + document.getElementById('badgeID').innerText + '.pdf');
+                playChimeEffect('toggle');
+                showToast('PDF Downloaded', 'Gate pass saved as PDF.', 'success');
+            } catch (err) {
+                console.error(err);
+                showToast('PDF Error', 'Unable to generate PDF. Please use Print instead.', 'warning');
+            }
+        }
+
+        // Backup specific registrant gate ticket metadata as dynamic local JSON file record
+        function downloadAsJSON() {
+            const ticketData = {
+                ticket_id: document.getElementById('badgeID').innerText,
+                attendee_name: document.getElementById('badgeName').innerText,
+                email: document.getElementById('badgeEmail').innerText,
+                phone: document.getElementById('badgePhone').innerText,
+                tier: document.getElementById('badgeTier').innerText,
+                church: document.getElementById('badgeChurch').innerText,
+                city: document.getElementById('badgeCity').innerText,
+                venue: "International Overflow Centre, Ashdown Park, Harare, Zimbabwe",
+                dates: "1 - 4 July 2026"
+            };
+
+            const jsonStr = JSON.stringify(ticketData, null, 2);
+            const blob = new Blob([jsonStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", `WOF_2026_Ticket_${ticketData.ticket_id}.json`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            playChimeEffect('toggle');
+            showToast('Pass Downloaded', 'Gate credentials stored safely in JSON Format.', 'success');
+        }
+
+        // Trigger custom modal verification instead of unsafe standard browser confirm popup
+        function triggerResetConfirmation() {
+            showCustomModal(
+                'Factory Database Reset',
+                'This will permanently delete all custom delegate entries and restore the default seed registrations. This action cannot be undone.',
+                function() {
+                    localStorage.removeItem(STORAGE_KEY);
+                    updateAdminDashboard();
+                    
+                    playChimeEffect('reset');
+                    showToast('System Reset Complete', 'Database records restored to default seed delegates.', 'info');
+                }
+            );
+        }
+
+        // Initialize App once Window finishes loading
+        window.onload = function () {
+            // Start Clock Targeter Loop
+            startCountdown();
+            // Load and build admin dashboard initial numbers
+            updateAdminDashboard();
+        }
+    </script>
+</body>
+</html>
