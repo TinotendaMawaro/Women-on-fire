@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Women on Fire 2026 - Oh God of Vengeance Show Yourself</title>
-    <link rel="icon" type="image/png" href="images/logo.png">
-    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="icon" type="image/png" href="images/logo.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/logo.png" sizes="16x16">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
+    <meta name="theme-color" content="#ff4500">
     <!-- Tailwind CSS for high-fidelity interactive design -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -1010,6 +1012,23 @@
             }
         }
 
+        async function syncRegistrationToGoogleSheets(record) {
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwf9-4NxYO4nr45niF4h-bREacAp50d1G3M-laJtrHGhibWVOtFu6wY--la8BW1aC9U/exec';
+
+            try {
+                const res = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(record),
+                    mode: 'no-cors'
+                });
+
+                console.log('Registration synced to Google Sheets:', record.id);
+            } catch (err) {
+                console.warn('Google Sheets sync failed:', err);
+            }
+        }
+
         // Custom Notification Center dispatch (Modern replacement for unsafe alerts!)
         let toastTimer = null;
         function showToast(title, message, iconType = 'success') {
@@ -1317,6 +1336,20 @@
             database.push(newRegistration);
             saveRegistrations(database);
 
+            syncRegistrationToGoogleSheets({
+                id: generatedId,
+                firstName,
+                lastName,
+                email,
+                phone,
+                city,
+                church,
+                title: tier,
+                tier,
+                checkedIn: false,
+                regDate: new Date().toISOString()
+            });
+
             document.getElementById('badgeName').innerText = `${firstName} ${lastName}`;
             document.getElementById('badgeEmail').innerText = email;
             document.getElementById('badgePhone').innerText = phone;
@@ -1605,59 +1638,7 @@
             showToast('Export Success', 'Successfully compiled and downloaded delegate dataset to CSV.', 'success');
         }
 
-        // Download ticket as PDF using jsPDF
-        function downloadTicketAsPDF() {
-            try {
-                const { jsPDF } = window.jspdf;
-                const doc = new jsPDF();
-
-                doc.setFont('helvetica', 'bold');
-                doc.setFontSize(18);
-                doc.setTextColor(40, 40, 40);
-                doc.text('Women on Fire 2026', 105, 20, { align: 'center' });
-
-                doc.setFont('helvetica', 'normal');
-                doc.setFontSize(11);
-                doc.setTextColor(80, 80, 80);
-                doc.text('Conference Gate Pass', 105, 28, { align: 'center' });
-
-                const yStart = 45;
-                const lineHeight = 8;
-                doc.setFontSize(12);
-                doc.setTextColor(20, 20, 20);
-
-                const rows = [
-                    ['Pass ID', document.getElementById('badgeID').innerText],
-                    ['Full Name', document.getElementById('badgeName').innerText],
-                    ['Email', document.getElementById('badgeEmail').innerText],
-                    ['Phone', document.getElementById('badgePhone').innerText],
-                    ['Title', document.getElementById('badgeTier').innerText],
-                    ['Church', document.getElementById('badgeChurch').innerText],
-                    ['City', document.getElementById('badgeCity').innerText],
-                    ['Venue', 'International Overflow Centre, Ashdown Park, Harare, Zimbabwe'],
-                    ['Dates', '1 - 4 July 2026']
-                ];
-
-                rows.forEach(([label, value], idx) => {
-                    const y = yStart + idx * lineHeight;
-                    doc.setFont('helvetica', 'bold');
-                    doc.setTextColor(100, 100, 100);
-                    doc.text(label + ':', 15, y);
-                    doc.setFont('helvetica', 'normal');
-                    doc.setTextColor(20, 20, 20);
-                    doc.text(String(value), 55, y);
-                });
-
-                doc.save('WOF_2026_Ticket_' + document.getElementById('badgeID').innerText + '.pdf');
-                playChimeEffect('toggle');
-                showToast('PDF Downloaded', 'Gate pass saved as PDF.', 'success');
-            } catch (err) {
-                console.error(err);
-                showToast('PDF Error', 'Unable to generate PDF. Please use Print instead.', 'warning');
-            }
-        }
-
-        // Download ticket as PDF using jsPDF
+        // Backup specific registrant gate ticket metadata as dynamic local JSON file record
         function downloadTicketAsPDF() {
             try {
                 const { jsPDF } = window.jspdf;
